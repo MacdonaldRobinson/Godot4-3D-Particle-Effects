@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bffivd01b0hx4"]
+[gd_scene load_steps=7 format=3 uid="uid://bffivd01b0hx4"]
 
 [ext_resource type="PackedScene" uid="uid://caj4jw1q4u6om" path="res://ParticleEffects/Smoke/smoke.tscn" id="1_yjyej"]
 [ext_resource type="PackedScene" uid="uid://c3kvr12843xu4" path="res://ParticleEffects/Fire/fire.tscn" id="2_1isf1"]
 [ext_resource type="PackedScene" uid="uid://cf5duol1xsfqb" path="res://ParticleEffects/Bolt/bolt.tscn" id="3_1a2gr"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s2x3v"]
+
+[sub_resource type="Sky" id="Sky_l10bp"]
+sky_material = SubResource("ProceduralSkyMaterial_s2x3v")
+
+[sub_resource type="Environment" id="Environment_du1d4"]
+background_mode = 2
+sky = SubResource("Sky_l10bp")
+
 [node name="ParticleEffects" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_du1d4")
 
 [node name="Smoke" parent="." instance=ExtResource("1_yjyej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01801, 0, 0)
@@ -16,4 +28,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040473, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36154, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.972869, 0.231357, 0, -0.231357, 0.972869, 0, 0.855864, 2.17653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.57174)
